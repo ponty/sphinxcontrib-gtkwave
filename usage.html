@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usage &mdash; sphinxcontrib-gtkwave v0.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="sphinxcontrib-gtkwave v0.0.0 documentation" href="index.html" />
+    <link rel="next" title="Development" href="dev.html" />
+    <link rel="prev" title="About" href="readme.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="dev.html" title="Development"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="About"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Add <tt class="docutils literal"><span class="pre">sphinxcontrib.gtkwave</span></tt> to <tt class="docutils literal"><span class="pre">extensions</span></tt> list in <tt class="docutils literal"><span class="pre">conf.py</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+              <span class="s">&#39;sphinxcontrib.gtkwave&#39;</span><span class="p">,</span>
+              <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic">
+<h2>Basic<a class="headerlink" href="#basic" title="Permalink to this headline">¶</a></h2>
+<p>The main directive is <cite>gtkwave</cite>:</p>
+<div class="highlight-python"><pre>.. directive:: gtkwave</pre>
+</div>
+<p>This directive accepts a single string as argument, which is file path
+to input file:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<img alt="_images/gtkwave_id0.png" src="_images/gtkwave_id0.png" />
+</div>
+<div class="section" id="waiting">
+<h2>waiting<a class="headerlink" href="#waiting" title="Permalink to this headline">¶</a></h2>
+<p>The program is waiting until something is displayed.
+If nothing happens (e.g. missing gtkwave), after timeout (:timeout:) assertion is raised.</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="timeout">
+<h3>timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
+<p>If nothing happens, after timeout (default 12 sec) exception is raised,
+you can change it with this option:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+      :timeout:  120</pre>
+</div>
+</div>
+<div class="section" id="screen">
+<h3>screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h3>
+<p>Using the option <tt class="docutils literal"><span class="pre">screen</span></tt> you can set the screen size, default is 1024x768,
+scrollbar and toolbar is removed from image:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+      :screen:   400x400</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<img alt="_images/gtkwave_id1.png" src="_images/gtkwave_id1.png" />
+<p>Other resolution:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+      :screen:   100x100</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<img alt="_images/gtkwave_id2.png" src="_images/gtkwave_id2.png" />
+</div>
+</div>
+<div class="section" id="image-options">
+<h2>Image options<a class="headerlink" href="#image-options" title="Permalink to this headline">¶</a></h2>
+<p>Same as in <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">http://docutils.sourceforge.net/docs/ref/rst/directives.html#image</a></p>
+<div class="section" id="scale-alt">
+<h3>scale, alt<a class="headerlink" href="#scale-alt" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+     :scale: 200 %
+     :alt: alternate text</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<a class="reference internal image-reference" href="_images/gtkwave_id3.png"><img alt="alternate text" src="_images/gtkwave_id3.png" style="width: 1934.0px; height: 374.0px;" /></a>
+</div>
+<div class="section" id="height-width">
+<h3>height, width<a class="headerlink" href="#height-width" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+     :height: 100px
+     :width:  100 px</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<img alt="_images/gtkwave_id4.png" src="_images/gtkwave_id4.png" style="width: 100px; height: 100px;" />
+</div>
+<div class="section" id="align">
+<h3>align<a class="headerlink" href="#align" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd
+     :align: right</pre>
+</div>
+<p>The above snippet would render like this:</p>
+<img alt="_images/gtkwave_id5.png" class="align-right" src="_images/gtkwave_id5.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Usage</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#basic">Basic</a></li>
+<li><a class="reference internal" href="#waiting">waiting</a></li>
+<li><a class="reference internal" href="#options">Options</a><ul>
+<li><a class="reference internal" href="#timeout">timeout</a></li>
+<li><a class="reference internal" href="#screen">screen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#image-options">Image options</a><ul>
+<li><a class="reference internal" href="#scale-alt">scale, alt</a></li>
+<li><a class="reference internal" href="#height-width">height, width</a></li>
+<li><a class="reference internal" href="#align">align</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="readme.html"
+                        title="previous chapter">About</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dev.html"
+                        title="next chapter">Development</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/usage.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="dev.html" title="Development"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="readme.html" title="About"
+             >previous</a> |</li>
+        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, ponty.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
