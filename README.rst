@@ -6,35 +6,42 @@ Links:
  * home: https://github.com/ponty/sphinxcontrib-gtkwave
  * documentation: http://ponty.github.com/sphinxcontrib-gtkwave
 
+Features
+-------------
+ - development on linux
+ 
+Known problems
+------------------
+ - Python 3 is not supported
+ - PDF output is not perfect
+ - no unittests
 
 Basic usage
-============
+------------------
 ::
 
     .. gtkwave:: docs/gtkwave_output.vcd
     
 How it works
-========================
+------------------
+
+This is a workaround, there is no image export in GTKWave_
 
 #. start Xvfb headless X server using pyvirtualdisplay_
 #. redirect GTKWave_ display to Xvfb server by setting $DISPLAY variable.
 #. start GTKWave_ with VCD file. Options are set on command-line and in temporary rc file
 #. temporary tcl script will set time interval and select all signals 
 #. wait until GTKWave_ is displayed
-#. take screenshot by pyscreenshot_ which needs scrot_.
+#. take screenshot by pyscreenshot_ which needs scrot.
 #. image is processed: toolbar, scrollbar and empty space are removed
 #. use ``.. image::`` directive to display image
-
-Known problems
-===================
- * PDF output is not perfect
  
 
 Installation
-============
+------------------
 
 General
---------
+^^^^^^^^^^^
 
  * install GTKWave_
  * install Xvfb_ and Xephyr_
@@ -48,7 +55,7 @@ General
 
 
 Ubuntu
-----------
+^^^^^^^^^^^
 ::
 
     sudo apt-get install gtkwave
@@ -61,7 +68,7 @@ Ubuntu
 
 
 Uninstall
-----------
+^^^^^^^^^^^
 ::
 
     # as root
