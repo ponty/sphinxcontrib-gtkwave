@@ -83,20 +83,26 @@ def prog_shot(cmd, f, wait, timeout, screen_size, visible, bgcolor):
     '''
     disp = SmartDisplay(visible=visible, size=screen_size, bgcolor=bgcolor)
     proc = EasyProcess(cmd)
-    
+    def cb_imgcheck(img):
+        '''accept img if height > minimum'''
+        left, upper, right, lower = img.getbbox()
+        accept = lower - upper > 30 #pixel
+        log.debug('img size=' + str(img.getbbox()) + ' accepted=' + str(accept))
+        return accept
+
     def func():
-        try:
-            img = disp.waitgrab(timeout=timeout)
-        except DisplayTimeoutError as e:
-            raise DisplayTimeoutError(str(e) + ' ' + str(proc))
         if wait:
             proc.sleep(wait)
-            img = disp.grab()
+        try:
+            img = disp.waitgrab(timeout=timeout, cb_imgcheck=cb_imgcheck)
+        except DisplayTimeoutError as e:
+            raise DisplayTimeoutError(str(e) + ' ' + str(proc))
         return img
     
     img = disp.wrap(proc.wrap(func))()
     if img:
         bbox = get_black_box(img)
+        assert bbox
         # extend to the left side
         bbox = (0, bbox[1], bbox[2], bbox[3])
         img = img.crop(bbox)
