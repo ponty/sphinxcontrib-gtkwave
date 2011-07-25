@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>About &mdash; sphinxcontrib-gtkwave v0.0.0 documentation</title>
+    <title>About &mdash; sphinxcontrib-gtkwave v0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.0.0',
+        VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="sphinxcontrib-gtkwave v0.0.0 documentation" href="index.html" />
+    <link rel="top" title="sphinxcontrib-gtkwave v0.0.1 documentation" href="index.html" />
     <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Table of Contents" href="index.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="index.html" title="Table of Contents"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -52,7 +52,7 @@
 <h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
 <p>This <a class="reference external" href="http://sphinx.pocoo.org/latest">Sphinx</a> 1.0 extension executes <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> during the build step and
 includes its screenshot into the documentation.
-<a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> can display wave files like VCD.</p>
+<a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> can display wave files like <a class="reference external" href="http://en.wikipedia.org/wiki/Value_change_dump">VCD</a> (value change dump).</p>
 <dl class="docutils">
 <dt>Links:</dt>
 <dd><ul class="first last simple">
@@ -61,37 +61,47 @@ includes its screenshot into the documentation.
 </ul>
 </dd>
 </dl>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>development on linux</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="known-problems">
+<h2>Known problems<a class="headerlink" href="#known-problems" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Python 3 is not supported</li>
+<li>PDF output is not perfect</li>
+<li>no unittests</li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="basic-usage">
-<h1>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><pre>.. gtkwave:: docs/gtkwave_output.vcd</pre>
 </div>
 </div>
 <div class="section" id="how-it-works">
-<h1>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
+<h2>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>This is a workaround, there is no image export in <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a></p>
 <ol class="arabic simple">
 <li>start Xvfb headless X server using <a class="reference external" href="https://github.com/ponty/PyVirtualDisplay">pyvirtualdisplay</a></li>
 <li>redirect <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> display to Xvfb server by setting $DISPLAY variable.</li>
 <li>start <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> with VCD file. Options are set on command-line and in temporary rc file</li>
 <li>temporary tcl script will set time interval and select all signals</li>
 <li>wait until <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a> is displayed</li>
-<li>take screenshot by <a class="reference external" href="https://github.com/ponty/pyscreenshot">pyscreenshot</a> which needs <a href="#id1"><span class="problematic" id="id2">scrot_</span></a>.</li>
+<li>take screenshot by <a class="reference external" href="https://github.com/ponty/pyscreenshot">pyscreenshot</a> which needs scrot.</li>
 <li>image is processed: toolbar, scrollbar and empty space are removed</li>
 <li>use <tt class="docutils literal"><span class="pre">..</span> <span class="pre">image::</span></tt> directive to display image</li>
 </ol>
 </div>
-<div class="section" id="known-problems">
-<h1>Known problems<a class="headerlink" href="#known-problems" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><ul class="simple">
-<li>PDF output is not perfect</li>
-</ul>
-</div></blockquote>
-</div>
 <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul>
 <li><p class="first">install <a class="reference external" href="http://gtkwave.sourceforge.net/">GTKWave</a></p>
@@ -105,16 +115,15 @@ includes its screenshot into the documentation.
 <li><p class="first">install <a class="reference external" href="http://peak.telecommunity.com/DevCenter/EasyInstall">setuptools</a></p>
 </li>
 <li><p class="first">install the program:</p>
-<blockquote>
-<div><p># as root
-easy_install <a class="reference external" href="https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master">https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master</a></p>
-</div></blockquote>
+<div class="highlight-python"><pre># as root
+easy_install https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master</pre>
+</div>
 </li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="ubuntu">
-<h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre>sudo apt-get install gtkwave
 sudo apt-get install python-setuptools
 sudo apt-get install scrot
@@ -125,9 +134,10 @@ sudo easy_install https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master<
 </div>
 </div>
 <div class="section" id="uninstall">
-<h2>Uninstall<a class="headerlink" href="#uninstall" title="Permalink to this headline">¶</a></h2>
+<h3>Uninstall<a class="headerlink" href="#uninstall" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python"><pre># as root
 pip uninstall sphinxcontrib-gtkwave</pre>
+</div>
 </div>
 </div>
 </div>
@@ -140,14 +150,17 @@ pip uninstall sphinxcontrib-gtkwave</pre>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">About</a></li>
+<li><a class="reference internal" href="#">About</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#known-problems">Known problems</a></li>
 <li><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li><a class="reference internal" href="#how-it-works">How it works</a></li>
-<li><a class="reference internal" href="#known-problems">Known problems</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#general">General</a></li>
 <li><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
 <li><a class="reference internal" href="#uninstall">Uninstall</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -192,7 +205,7 @@ pip uninstall sphinxcontrib-gtkwave</pre>
         <li class="right" >
           <a href="index.html" title="Table of Contents"
              >previous</a> |</li>
-        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">sphinxcontrib-gtkwave v0.0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
