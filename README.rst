@@ -1,6 +1,6 @@
 This Sphinx_ 1.0 extension executes GTKWave_ during the build step and
 includes its screenshot into the documentation.
-GTKWave_ can display wave files like VCD.
+GTKWave_ can display wave files like VCD_ (value change dump).
 
 Links:
  * home: https://github.com/ponty/sphinxcontrib-gtkwave
@@ -48,7 +48,7 @@ General
  * install PIL_
  * install scrot
  * install setuptools_
- * install the program:
+ * install the program::
 
     # as root
     easy_install https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master
@@ -85,4 +85,5 @@ Uninstall
 .. _pyscreenshot: https://github.com/ponty/pyscreenshot
 .. _pyvirtualdisplay: https://github.com/ponty/PyVirtualDisplay
 .. _gtkwave: http://gtkwave.sourceforge.net/
+.. _vcd: http://en.wikipedia.org/wiki/Value_change_dump
 
