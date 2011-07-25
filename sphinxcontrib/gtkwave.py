@@ -18,7 +18,7 @@ import tempfile
 
 """
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
    
 log = logging.getLogger(__name__)
 log.debug('sphinxcontrib.gtkwave (version:%s)' % __version__)
@@ -32,10 +32,17 @@ set clk48 [list]
 set nfacs [ gtkwave::getNumFacs ]
 for {set i 0} {$i < $nfacs } {incr i} {
 set facname [ gtkwave::getFacName $i ]
-#puts "$i: $facname"
+
+#set fields [split $facname "\\"]
+#set sig [ lindex $fields 1 ]
 set fields [split $facname "\\"]
-set sig [ lindex $fields 1 ]
-#puts "$i: $sig"
+set sig1 [ lindex $fields 0 ]
+set sig2 [ lindex $fields 1 ]
+if {[llength $fields]  == 2} {
+set sig "$sig2"
+} else {
+set sig "$sig1"
+}
 
 lappend clk48 "$sig"
 }
