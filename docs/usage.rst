@@ -72,7 +72,7 @@ Other resolution::
 The above snippet would render like this:
 
 .. gtkwave:: docs/gtkwave_output.vcd
-     :screen:   100x100
+     :screen:   200x200
 
 Image options
 ---------------

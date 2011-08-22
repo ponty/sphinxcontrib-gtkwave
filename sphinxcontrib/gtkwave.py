@@ -18,7 +18,7 @@ import tempfile
 
 """
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
    
 log = logging.getLogger(__name__)
 log.debug('sphinxcontrib.gtkwave (version:%s)' % __version__)
@@ -92,9 +92,9 @@ def prog_shot(cmd, f, wait, timeout, screen_size, visible, bgcolor):
     proc = EasyProcess(cmd)
     def cb_imgcheck(img):
         '''accept img if height > minimum'''
-        left, upper, right, lower = img.getbbox()
+        left, upper, right, lower = get_black_box(img)
         accept = lower - upper > 30 #pixel
-        log.debug('img size=' + str(img.getbbox()) + ' accepted=' + str(accept))
+        log.debug('cropped img size=' + str((left, upper, right, lower)) + ' accepted=' + str(accept))
         return accept
 
     def func():
