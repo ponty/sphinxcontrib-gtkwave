@@ -51,7 +51,7 @@ General
  * install the program::
 
     # as root
-    easy_install https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master
+    easy_install sphinxcontrib-gtkwave
 
 
 Ubuntu
@@ -64,7 +64,7 @@ Ubuntu
     sudo apt-get install xvfb
     sudo apt-get install xserver-xephyr
     sudo apt-get install python-imaging
-    sudo easy_install https://github.com/ponty/sphinxcontrib-gtkwave/zipball/master
+    sudo easy_install sphinxcontrib-gtkwave
 
 
 Uninstall
