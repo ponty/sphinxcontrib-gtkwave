@@ -52,16 +52,7 @@ classifiers = [
     'Topic :: Utilities',
     ]
 
-install_requires = [
-    # -*- Install requires: -*-
-    'setuptools',
-    'path.py',
-    'PIL',
-    'EasyProcess',
-    'pyvirtualdisplay',
-    'pyscreenshot',
-    'Sphinx>=1.0',
-    ]
+install_requires = open("requirements.txt").read().split('\n')
 
 # compatible with distutils of python 2.3+ or later
 setup(
@@ -107,6 +98,7 @@ if ALL_TASKS_LOADED:
                                      ]
     
     options.paved.dist.manifest.include.remove('distribute_setup.py')
+    options.paved.dist.manifest.include.add('requirements.txt')
     
     
     @task

@@ -1,0 +1,8 @@
+setuptools
+path.py
+PIL
+EasyProcess
+pyvirtualdisplay
+pyscreenshot
+Sphinx>=1.0
+
