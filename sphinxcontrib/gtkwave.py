@@ -92,7 +92,10 @@ def prog_shot(cmd, f, wait, timeout, screen_size, visible, bgcolor):
     proc = EasyProcess(cmd)
     def cb_imgcheck(img):
         '''accept img if height > minimum'''
-        left, upper, right, lower = get_black_box(img)
+        rec = get_black_box(img)
+        if not rec:
+            return False
+        left, upper, right, lower = rec
         accept = lower - upper > 30 #pixel
         log.debug('cropped img size=' + str((left, upper, right, lower)) + ' accepted=' + str(accept))
         return accept
