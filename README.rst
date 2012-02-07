@@ -47,11 +47,11 @@ General
  * install Xvfb_ and Xephyr_
  * install PIL_
  * install scrot
- * install setuptools_
+ * install pip_
  * install the program::
 
     # as root
-    easy_install sphinxcontrib-gtkwave
+    pip install sphinxcontrib-gtkwave
 
 
 Ubuntu
@@ -59,12 +59,12 @@ Ubuntu
 ::
 
     sudo apt-get install gtkwave
-    sudo apt-get install python-setuptools
+    sudo apt-get install python-pip
     sudo apt-get install scrot
     sudo apt-get install xvfb
     sudo apt-get install xserver-xephyr
     sudo apt-get install python-imaging
-    sudo easy_install sphinxcontrib-gtkwave
+    sudo pip install sphinxcontrib-gtkwave
 
 
 Uninstall
