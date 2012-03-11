@@ -1,5 +1,6 @@
 from nose.tools import eq_
+from sphinxcontrib.gtkwave import GtkwaveDirective
 
 
-def test_dummy():
-    eq_(0, 0)
+def test_import():
+    x = GtkwaveDirective
