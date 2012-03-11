@@ -1,4 +1,3 @@
-setuptools
 path.py
 PIL
 EasyProcess
