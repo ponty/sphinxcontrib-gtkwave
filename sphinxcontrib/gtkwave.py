@@ -105,7 +105,7 @@ def prog_shot(cmd, f, wait, timeout, screen_size, visible, bgcolor):
             proc.sleep(wait)
         try:
             img = disp.waitgrab(timeout=timeout, cb_imgcheck=cb_imgcheck)
-        except DisplayTimeoutError as e:
+        except DisplayTimeoutError , e:
             raise DisplayTimeoutError(str(e) + ' ' + str(proc))
         return img
     
