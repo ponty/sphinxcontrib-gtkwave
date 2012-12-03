@@ -15,14 +15,15 @@ def read_project_version(*py):
 NAME = 'sphinxcontrib-gtkwave'
 URL = 'https://github.com/ponty/sphinxcontrib-gtkwave'
 DESCRIPTION = 'Sphinx extension to include screenshot of GTKWave'
-VERSION = read_project_version('sphinxcontrib' , 'gtkwave.py')
+VERSION = read_project_version('sphinxcontrib', 'gtkwave.py')
 
 extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 classifiers = [
-    # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+    # Get more strings from
+    # http://www.python.org/pypi?%3Aaction=list_classifiers
     "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
     "Operating System :: POSIX :: Linux",
@@ -32,7 +33,7 @@ classifiers = [
     'Intended Audience :: Developers',
     'Topic :: Documentation',
     'Topic :: Utilities',
-    ]
+]
 
 install_requires = open("requirements.txt").read().split('\n')
 
@@ -45,7 +46,7 @@ setup(
     classifiers=classifiers,
     keywords='sphinx screenshot gtkwave vcd',
     author='ponty',
-    #author_email='',
+    # author_email='',
     url=URL,
     license='BSD',
     packages=find_packages(exclude=['bootstrap', 'pavement', ]),
@@ -55,4 +56,4 @@ setup(
     install_requires=install_requires,
     namespace_packages=['sphinxcontrib'],
     **extra
-    )
+)
