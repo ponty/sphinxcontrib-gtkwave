@@ -55,12 +55,17 @@ set min_time [ gtkwave::getMinTime ]
 
 gtkwave::setZoomRangeTimes $min_time $max_time
 '''
+
 rc = r'''
 hide_sst 1
 splash_disable 1
 enable_vert_grid 0
 
 '''
+
+
+def get_src(self):
+    return self.state_machine.get_source(self.lineno)
 
 
 def get_black_box(im):
@@ -175,7 +180,7 @@ class GtkwaveDirective(parent):
         global image_id
         f = 'gtkwave_id%s.png' % (str(image_id))
         image_id += 1
-        fabs = path.path(self.src).dirname() / (f)
+        fabs = path.path(get_src(self)).dirname() / (f)
         images_to_delete.append(fabs)
 
         prog_shot(cmd, fabs, screen_size=screen, wait=wait,
