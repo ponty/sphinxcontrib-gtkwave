@@ -2,7 +2,7 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from easyprocess import EasyProcess
 from pyvirtualdisplay.smartdisplay import SmartDisplay, DisplayTimeoutError
-import ImageFilter
+from PIL import ImageFilter
 import docutils.parsers.rst.directives.images
 import logging
 import os
