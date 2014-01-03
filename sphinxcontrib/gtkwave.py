@@ -1,4 +1,3 @@
-from docutils import nodes
 from docutils.parsers.rst import directives
 from easyprocess import EasyProcess
 from pyvirtualdisplay.smartdisplay import SmartDisplay, DisplayTimeoutError
@@ -99,7 +98,7 @@ def prog_shot(cmd, f, wait, timeout, screen_size, visible, bgcolor):
     proc = EasyProcess(cmd)
 
     def cb_imgcheck(img):
-        '''accept img if height > minimum'''
+        """accept img if height > minimum."""
         rec = get_black_box(img)
         if not rec:
             return False
@@ -206,7 +205,7 @@ class GtkwaveDirective(parent):
 #        if 'prompt' in self.options:
             # TODO:
             # if app.config.programoutput_use_ansi:
-            #    # enable ANSI support, if requested by config
+            # enable ANSI support, if requested by config
             #    from sphinxcontrib.ansi import ansi_literal_block
             #    node_class = ansi_literal_block
             # else:

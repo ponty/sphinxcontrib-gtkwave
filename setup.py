@@ -24,10 +24,10 @@ if sys.version_info >= (3,):
 classifiers = [
     # Get more strings from
     # http://www.python.org/pypi?%3Aaction=list_classifiers
-    "License :: OSI Approved :: BSD License",
-    "Natural Language :: English",
-    "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python",
+    'License :: OSI Approved :: BSD License',
+    'Natural Language :: English',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python',
     'Environment :: Console',
     'Environment :: Web Environment',
     'Intended Audience :: Developers',
@@ -35,7 +35,7 @@ classifiers = [
     'Topic :: Utilities',
 ]
 
-install_requires = open("requirements.txt").read().split('\n')
+install_requires = open('requirements.txt').read().split('\n')
 
 # compatible with distutils of python 2.3+ or later
 setup(
